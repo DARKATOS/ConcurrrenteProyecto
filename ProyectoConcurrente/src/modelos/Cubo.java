@@ -29,8 +29,5 @@ public class Cubo {
     public void setCubo(Cara[] cubo) {
         this.cubo = cubo;
     }
-
-    
-    
     
 }

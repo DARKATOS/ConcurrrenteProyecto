@@ -11,28 +11,27 @@ package modelos;
  */
 public interface Movimientos {
     
-    public void movIzq1();
+    public void movIzq1(int cara);
     
-    public void movIzq2();
+    public void movIzq2(int cara);
     
-    public void movIzq3();
+    public void movIzq3(int cara);
     
-    public void movDer1();
+    public void movDer1(int cara);
     
-    public void movDer2();
+    public void movDer2(int cara);
     
-    public void movDer3();
+    public void movDer3(int cara);
     
-    public void movArr1();
+    public void movArr1(int cara);
     
-    public void movArr2();
+    public void movArr2(int cara);
     
-    public void movArr3();
+    public void movArr3(int cara);
     
-    public void movAba1();
+    public void movAba1(int cara);
     
-    public void movAba2();
+    public void movAba2(int cara);
     
-    public void movAba3();
-    
+    public void movAba3(int cara);
 }
