@@ -24,7 +24,63 @@ public class Controladora implements Movimientos {
         cubot = null;
         inicializarCubo();
     }
+    
+    /**
+     * Metodo que permite ejecutar en el cubo los movimientos que realizan los clientes.
+     * @param movimiento tipo de movimiento que se va realizar.
+     * @param cara numero de la cara en la cual se realizara el movimiento.
+     */
+    public void ejecutarMovimiento(String movimiento, int cara)
+    {
+        System.out.println("Entre a ejecutar el movimiento!");
+        switch(movimiento)
+        {
+            case "movIzq1":
+                movIzq1(cara);
+                break;
+            case "movIzq2":
+                movIzq2(cara);
+                break;
+            case "movIzq3":
+                movIzq3(cara);
+                break;
+            case "movDer1":
+                movDer1(cara);
+                break;
+            case "movDer2":
+                movDer2(cara);
+                break;
+            case "movDer3":
+                movDer3(cara);
+                break;
+            case "movArr1":
+                movArr1(cara);
+                System.out.println("Entre a realizar el mov: "+movimiento);
+                break;
+            case "movArr2":
+                movArr2(cara);
+                break;
+            case "movArr3":
+                movArr3(cara);
+                break;
+            case "movAba1":
+                movAba1(cara);
+                break;
+            case "movAba2":
+                movAba2(cara);
+                break;
+            case "movAba3":
+                movAba3(cara);
+                break;
+            default:
+                System.out.println("Error al realizar el movimiento");
+        }
+    }
+    
 
+    /**
+     * inicializo el cubo con sus cuadros, caras, colores
+     */
     private void inicializarCubo() {
         //inicializo el cubo con sus cuadros, caras, colores
         //0. blanco.
@@ -33,51 +89,55 @@ public class Controladora implements Movimientos {
         //3. rojo.
         //4. verde
         //5. naranja
-
+        
+        //Se crean las caras del cubo
         Cara caras[] = new Cara[6];
         Cara caras2[] = new Cara[6];
         for (int i = 0; i < caras.length; i++) {
+            //Se crea la cara que contiene una matriz de 3 x 3 de cuadros.
             Cuadro cuadros[][] = new Cuadro[3][3];
             Cuadro cuadro;
 
             Cuadro cuadros2[][] = new Cuadro[3][3];
             Cuadro cuadro2;
+            
+            //Se asigna a cada cuadro un color segun el numero de la cara
             if (i == 0) {
-                cuadro = new Cuadro("blanco", 1);
-                cuadro2 = new Cuadro("blanco", 1);
+                cuadro = new Cuadro("blanco", 0);
+                cuadro2 = new Cuadro("blanco", 0);
             } else if (i == 1) {
-                cuadro = new Cuadro("amarillo", 2);
-                cuadro2 = new Cuadro("amarillo", 2);
+                cuadro = new Cuadro("amarillo", 1);
+                cuadro2 = new Cuadro("amarillo", 1);
             } else if (i == 2) {
-                cuadro = new Cuadro("azul", 3);
-                cuadro2 = new Cuadro("azul", 3);
+                cuadro = new Cuadro("azul", 2);
+                cuadro2 = new Cuadro("azul", 2);
             } else if (i == 3) {
                 cuadro = new Cuadro("rojo", 3);
                 cuadro2 = new Cuadro("rojo", 3);
             } else if (i == 4) {
-                cuadro = new Cuadro("verde", 3);
-                cuadro2 = new Cuadro("verde", 3);
+                cuadro = new Cuadro("verde", 4);
+                cuadro2 = new Cuadro("verde", 4);
             } else {
-                cuadro = new Cuadro("naranja", 3);
-                cuadro2 = new Cuadro("naranja", 3);
+                cuadro = new Cuadro("naranja", 5);
+                cuadro2 = new Cuadro("naranja", 5);
             }
             for (int j = 0; j < cuadros.length; j++) {
                 for (int k = 0; k < cuadros[0].length; k++) {
                     cuadros[j][k] = cuadro;
                     cuadros2[j][k] = cuadro2;
-
                 }
             }
             caras[i] = new Cara(cuadros);
             caras2[i] = new Cara(cuadros2);
         }
-        //cubo = new Cubo(caras);
 
         //Se llenan las orientaciones y las caras que afectan los moimientos
-        int movIzqDer1[] = {0, 2, 5, 4}; //caras medias izquierda
-        int movIzqDer2[] = {1, 2, 3, 4}; //cara arriba y abajo izquierda
+        int movIzqDer1[] = {0, 2, 5, 4}; //Caras medias izquierda
+        int movIzqDer2[] = {1, 2, 3, 4}; //Cara arriba y abajo izquierda
         int movArrAba1[] = {1, 0, 3, 5}; //Cara arriba y abajo arriba
-        int movArrAba2[] = {2, 0, 4, 5}; //caras lados arriba
+        int movArrAba2[] = {2, 0, 4, 5}; //Caras lados arriba
+        
+        //Fronteras de cada una de las caras.
         caras[0].setLimitaArriba(3);
         caras[0].setLimitaAbajo(1);
         caras[0].setLimitaIzquierda(2);
@@ -177,9 +237,8 @@ public class Controladora implements Movimientos {
     }
 
     /**
-     * @param cara
-     * @see movimiento a la izquierda en alguna de las caras en la primera fila.
-     * @see compromete la cara de arriba que es la numero 0.
+     * movimiento a la izquierda en alguna de las caras en la primera fila. compromete la cara de arriba que es la numero 0.
+     * @param cara es el numero de la cara a la cual se le realizara el movimiento.
      */
     @Override
     public void movIzq1(int cara) {
@@ -207,7 +266,12 @@ public class Controladora implements Movimientos {
         }
         guardarCubo();
     }
-
+    
+    
+    /**
+     * movimiento a la izquierda en alguna de las caras en la segunda fila.
+     * @param cara es el numero de la cara a la cual se le realizara el movimiento.
+     */
     @Override
     public void movIzq2(int cara) {
         int temp1 = 0;
@@ -226,7 +290,11 @@ public class Controladora implements Movimientos {
         }
         guardarCubo();
     }
-
+    
+    /**
+     * movimiento a la izquierda en alguna de las caras en la primera fila. compromete la cara de abajo que es la numero 5.
+     * @param cara es el numero de la cara a la cual se le realizara el movimiento.
+     */
     @Override
     public void movIzq3(int cara) {
         int temp1 = 0;
@@ -253,7 +321,11 @@ public class Controladora implements Movimientos {
         }
         guardarCubo();
     }
-
+    
+    /**
+     * movimiento a la derecha en alguna de las caras en la primera fila. compromete la cara de arriba que es la numero 0.
+     * @param cara es el numero de la cara a la cual se le realizara el movimiento.
+     */
     @Override
     public void movDer1(int cara) {
         int temp1 = 0;
@@ -281,6 +353,10 @@ public class Controladora implements Movimientos {
         guardarCubo();
     }
 
+    /**
+     * movimiento a la derecha en alguna de las caras en la segunda fila.
+     * @param cara es el numero de la cara a la cual se le realizara el movimiento.
+     */
     @Override
     public void movDer2(int cara) {
         int temp1 = 0;
@@ -300,6 +376,10 @@ public class Controladora implements Movimientos {
         guardarCubo();
     }
 
+    /**
+     * movimiento a la derecha en alguna de las caras en la tercera fila.
+     * @param cara es el numero de la cara a la cual se le realizara el movimiento.
+     */
     @Override
     public void movDer3(int cara) {
         int temp1 = 0;

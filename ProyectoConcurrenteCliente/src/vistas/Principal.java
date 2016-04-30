@@ -6,9 +6,9 @@
 package vistas;
 
 import controladoras.Controladora;
-import java.awt.Color;
+import java.util.HashMap;
 import javax.swing.JOptionPane;
-import modelos.ServidorCliente;
+import javax.swing.JPanel;
 
 /**
  *
@@ -20,174 +20,22 @@ public class Principal extends javax.swing.JFrame {
      * Creates new form Principal
      */
     private Controladora controladora;
+    HashMap<String, JPanel> paneles;
+
     public Principal() {
         initComponents();
-        controladora=new Controladora(new ServidorCliente());
-    }
-    
-    private void actualizarColorCara()
-    {
-        String matriz[][]=controladora.getCara();
-        switch(matriz[0][0])
-        {
-            case "blanco":
-                jPanel2.setBackground(Color.white);
-            case "naranja":
-                jPanel2.setBackground(Color.orange);
-            case "amarillo":
-                jPanel2.setBackground(Color.yellow);
-            case "azul":
-                jPanel2.setBackground(Color.blue);
-            case "rojo":
-                jPanel2.setBackground(Color.red);
-            case "verde":
-                jPanel2.setBackground(Color.green);
-            default:
-                JOptionPane.showMessageDialog(this, "Error al pintar", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        
-        switch(matriz[0][1])
-        {
-            case "blanco":
-                jPanel3.setBackground(Color.white);
-            case "naranja":
-                jPanel3.setBackground(Color.orange);
-            case "amarillo":
-                jPanel3.setBackground(Color.yellow);
-            case "azul":
-                jPanel3.setBackground(Color.blue);
-            case "rojo":
-                jPanel3.setBackground(Color.red);
-            case "verde":
-                jPanel3.setBackground(Color.green);
-            default:
-                JOptionPane.showMessageDialog(this, "Error al pintar", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        switch(matriz[0][2])
-        {
-            case "blanco":
-                jPanel4.setBackground(Color.white);
-            case "naranja":
-                jPanel4.setBackground(Color.orange);
-            case "amarillo":
-                jPanel4.setBackground(Color.yellow);
-            case "azul":
-                jPanel4.setBackground(Color.blue);
-            case "rojo":
-                jPanel4.setBackground(Color.red);
-            case "verde":
-                jPanel4.setBackground(Color.green);
-            default:
-                JOptionPane.showMessageDialog(this, "Error al pintar", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        
-        switch(matriz[1][0])
-        {
-            case "blanco":
-                jPanel5.setBackground(Color.white);
-            case "naranja":
-                jPanel5.setBackground(Color.orange);
-            case "amarillo":
-                jPanel5.setBackground(Color.yellow);
-            case "azul":
-                jPanel5.setBackground(Color.blue);
-            case "rojo":
-                jPanel5.setBackground(Color.red);
-            case "verde":
-                jPanel5.setBackground(Color.green);
-            default:
-                JOptionPane.showMessageDialog(this, "Error al pintar", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        
-        switch(matriz[1][1])
-        {
-            case "blanco":
-                jPanel6.setBackground(Color.white);
-            case "naranja":
-                jPanel6.setBackground(Color.orange);
-            case "amarillo":
-                jPanel6.setBackground(Color.yellow);
-            case "azul":
-                jPanel6.setBackground(Color.blue);
-            case "rojo":
-                jPanel6.setBackground(Color.red);
-            case "verde":
-                jPanel6.setBackground(Color.green);
-            default:
-                JOptionPane.showMessageDialog(this, "Error al pintar", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        
-        switch(matriz[1][2])
-        {
-            case "blanco":
-                jPanel7.setBackground(Color.white);
-            case "naranja":
-                jPanel7.setBackground(Color.orange);
-            case "amarillo":
-                jPanel7.setBackground(Color.yellow);
-            case "azul":
-                jPanel7.setBackground(Color.blue);
-            case "rojo":
-                jPanel7.setBackground(Color.red);
-            case "verde":
-                jPanel7.setBackground(Color.green);
-            default:
-                JOptionPane.showMessageDialog(this, "Error al pintar", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        
-        switch(matriz[2][0])
-        {
-            case "blanco":
-                jPanel8.setBackground(Color.white);
-            case "naranja":
-                jPanel8.setBackground(Color.orange);
-            case "amarillo":
-                jPanel8.setBackground(Color.yellow);
-            case "azul":
-                jPanel8.setBackground(Color.blue);
-            case "rojo":
-                jPanel8.setBackground(Color.red);
-            case "verde":
-                jPanel8.setBackground(Color.green);
-            default:
-                JOptionPane.showMessageDialog(this, "Error al pintar", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        
-        switch(matriz[2][1])
-        {
-            case "blanco":
-                jPanel9.setBackground(Color.white);
-            case "naranja":
-                jPanel9.setBackground(Color.orange);
-            case "amarillo":
-                jPanel9.setBackground(Color.yellow);
-            case "azul":
-                jPanel9.setBackground(Color.blue);
-            case "rojo":
-                jPanel9.setBackground(Color.red);
-            case "verde":
-                jPanel9.setBackground(Color.green);
-            default:
-                JOptionPane.showMessageDialog(this, "Error al pintar", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        
-        switch(matriz[2][2])
-        {
-            case "blanco":
-                jPanel10.setBackground(Color.white);
-            case "naranja":
-                jPanel10.setBackground(Color.orange);
-            case "amarillo":
-                jPanel10.setBackground(Color.yellow);
-            case "azul":
-                jPanel10.setBackground(Color.blue);
-            case "rojo":
-                jPanel10.setBackground(Color.red);
-            case "verde":
-                jPanel10.setBackground(Color.green);
-            default:
-                JOptionPane.showMessageDialog(this, "Error al pintar", "Error", JOptionPane.ERROR_MESSAGE);
-        }
+        setLocationRelativeTo(null);
+        paneles=new HashMap<>();
+        paneles.put("panel2", jPanel2);
+        paneles.put("panel3", jPanel3);
+        paneles.put("panel4", jPanel4);
+        paneles.put("panel5", jPanel5);
+        paneles.put("panel6", jPanel6);
+        paneles.put("panel7", jPanel7);
+        paneles.put("panel8", jPanel8);
+        paneles.put("panel9", jPanel9);
+        paneles.put("panel10", jPanel10);
+        controladora = new Controladora(this,paneles, true, jLabel15, jLabel2, jLabel4);
     }
 
     /**
@@ -231,6 +79,10 @@ public class Principal extends javax.swing.JFrame {
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -427,6 +279,11 @@ public class Principal extends javax.swing.JFrame {
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/flecha1.jpg"))); // NOI18N
         jButton1.setPreferredSize(new java.awt.Dimension(62, 35));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel14.setText("Cara");
 
@@ -434,28 +291,83 @@ public class Principal extends javax.swing.JFrame {
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/flecha1.jpg"))); // NOI18N
         jButton2.setPreferredSize(new java.awt.Dimension(62, 35));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/flecha1.jpg"))); // NOI18N
         jButton3.setPreferredSize(new java.awt.Dimension(62, 35));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/flecha2.jpg"))); // NOI18N
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/flecha2.jpg"))); // NOI18N
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/flecha2.jpg"))); // NOI18N
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/flecha4.jpg"))); // NOI18N
         jButton7.setPreferredSize(new java.awt.Dimension(62, 35));
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/flecha4.jpg"))); // NOI18N
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/flecha4.jpg"))); // NOI18N
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
 
         jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/flecha3.jpg"))); // NOI18N
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
 
         jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/flecha3.jpg"))); // NOI18N
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
 
         jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/flecha3.jpg"))); // NOI18N
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
 
         jButton13.setText("Conectar");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
@@ -464,16 +376,28 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("Turno General:");
+
+        jLabel2.setText("-2");
+
+        jLabel3.setText("Turno Propio:");
+
+        jLabel4.setText("-2");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(89, Short.MAX_VALUE)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jButton13)
@@ -506,43 +430,62 @@ public class Principal extends javax.swing.JFrame {
                                     .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                                 .addGap(18, 18, 18)
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                        .addGap(86, 86, 86))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(68, 68, 68))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60)
+                        .addGap(59, 59, 59)
                         .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(65, 65, 65)
+                        .addGap(67, 67, 67)
                         .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(161, 161, 161))))
+                        .addGap(191, 191, 191))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton13))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
                         .addComponent(jLabel10)
-                        .addGap(24, 24, 24)
+                        .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel11)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel3)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel13))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jLabel4)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel13)))
+                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton13)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(11, 11, 11)
@@ -592,13 +535,84 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
+    /**
+     * 
+     * Metodo de evento del boton conectar.
+     * @param evt
+     */
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        String nombre=jTextField1.getText();
-        String direccionip=jTextField2.getText();
-        String puerto=jTextField3.getText();
-        controladora.agregarDatos(nombre, direccionip, puerto);
-        controladora.conexion();
+        String nombre = jTextField1.getText();
+        String direccionip = jTextField2.getText();
+        int puerto = Integer.parseInt(jTextField3.getText());
+        boolean conecto = controladora.conectarCliente(nombre, direccionip, puerto);
+        if (conecto) {
+            JOptionPane.showMessageDialog(this, "Conexion correta", "Exito", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "Conexion Incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String movimiento="movArr1";
+        controladora.setMovimiento(movimiento);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String movimiento="movArr2";
+        controladora.setMovimiento(movimiento);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        String movimiento="movArr3";
+        controladora.setMovimiento(movimiento);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        String movimiento="movIzq1";
+        controladora.setMovimiento(movimiento);
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        String movimiento="movIzq2";
+        controladora.setMovimiento(movimiento);
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        String movimiento="movIzq3";
+        controladora.setMovimiento(movimiento);
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        String movimiento="movDer1";
+        controladora.setMovimiento(movimiento);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        String movimiento="movDer2";
+        controladora.setMovimiento(movimiento);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        String movimiento="movDer3";
+        controladora.setMovimiento(movimiento);
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        String movimiento="movAba1";
+        controladora.setMovimiento(movimiento);
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        String movimiento="movAba2";
+        controladora.setMovimiento(movimiento);
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        String movimiento="movAba3";
+        controladora.setMovimiento(movimiento);
+    }//GEN-LAST:event_jButton12ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -649,12 +663,16 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;

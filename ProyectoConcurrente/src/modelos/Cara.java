@@ -5,11 +5,13 @@
  */
 package modelos;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Jorge Alejandro
  */
-public class Cara {
+public class Cara implements Serializable{
     private Cuadro cara[][];
     private int limitaArriba;
     private int limitaAbajo;
