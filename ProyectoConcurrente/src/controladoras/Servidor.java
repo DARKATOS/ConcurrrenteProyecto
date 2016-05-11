@@ -19,7 +19,7 @@ import modelos.HiloCliente;
  *
  * @author Jorge Alejandro
  */
-public class Servidor extends Thread {
+public class Servidor {
 
     private ServerSocket servidorSocket;
     public static LinkedList<HiloCliente> totalClientes;
@@ -52,7 +52,6 @@ public class Servidor extends Thread {
     private void startServer(int port) {
         try {
             servidorSocket = new ServerSocket(port);
-            listenConnections();
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
@@ -77,7 +76,7 @@ public class Servidor extends Thread {
      * Metodo que permite escuchar y aceptar las solicitudes de conexion de los
      * 6 clientes e inicializa el delegado de los mismos.
      */
-    private void listenConnections() {
+    public void listenConnections() {
         for (int i = 0; i < 2; i++) {
             try {
                 System.out.println("Esperando Conexion");
@@ -96,14 +95,5 @@ public class Servidor extends Thread {
     public ServerSocket getServidorSocket() {
         return servidorSocket;
     }
-
-    @Override
-    public void run() {
-        while(true)
-        {
-            listenConnections();
-        }
-    }
-    
     
 }

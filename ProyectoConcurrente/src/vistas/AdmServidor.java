@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  *
  * @author Jorge Alejandro
  */
-public class AdmServidor extends javax.swing.JFrame {
+public class AdmServidor extends javax.swing.JFrame implements Runnable {
 
     /**
      * Creates new form AdmServidor
@@ -107,7 +107,8 @@ public class AdmServidor extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         servidor=new Servidor(3000);
-        servidor.start();
+        Thread hilo=new Thread(this);
+        hilo.start();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -150,4 +151,12 @@ public class AdmServidor extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void run() {
+        while (true)
+        {
+            servidor.listenConnections();
+        }
+    }
 }
